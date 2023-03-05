@@ -56,6 +56,7 @@ PIL_DIR="`dirname $PIL_MAIN`"
 PIL="$PIL_MAIN`[ ! -z $npm_config_pilconfig ] && echo \" -P $npm_config_pilconfig\"`"
 PILSTARK="node $NODE node_modules/pil-stark/src"
 PILCOM="node $NODE node_modules/.bin/pilcom"
+PILCOMVERIFY="node $NODE node_modules/pilcom/src"
 SNARKJS="node $NODE node_modules/snarkjs/cli.js"
 BCTREE="${npm_config_bctree:=$PILSTARK/main_buildconsttree.js}"
 # [ ! -z $npm_config_nth ] &&

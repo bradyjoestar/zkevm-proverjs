@@ -44,7 +44,7 @@
     "buildpil": ". ./pre.sh && mkdir -p $BDIR/pil/zkevm && node $NODE node_modules/.bin/pilcom $PIL -o $BDIR/pil/zkevm/$PIL_JSON -c $BDIR/pols_generated -n fork_1 && for PF in `tools/included_pils.sh $BDIR/pil/zkevm/$PIL_JSON`; do cp -v $PIL_DIR/$PF $BDIR/pil/zkevm/$PF; done",
     "buildconstants": ". ./pre.sh && node $NODE src/main_buildconstants -p $PIL -r $BDIR/rom.json -o $BDIR/zkevm.const",
     "exec": ". ./pre.sh && INPUT=${npm_config_input:=tools/build-genesis/input_executor.json} && echo \"input: $INPUT\" && node $NODE src/main_executor $INPUT -p $PIL -r $BDIR/rom.json -o $BDIR/zkevm$NTH.commit && cp $INPUT $BDIR/input_executor.json",
-    "pilverify": ". ./pre.sh && $PILCOM/main_pilverifier.js $BDIR/zkevm$NTH.commit -c $BDIR/zkevm.const -p $PIL",
+    "pilverify": ". ./pre.sh && $PILCOMVERIFY/main_pilverifier.js $BDIR/zkevm$NTH.commit -c $BDIR/zkevm.const -p $PIL",
     "buildstarkinfo": ". ./pre.sh && $PILSTARK/main_genstarkinfo.js -p $PIL -s $BDIR/zkevm.starkstruct.json -i $BDIR/zkevm.starkinfo.json",
     "buildchelpers": ". ./pre.sh && $PILSTARK/main_buildchelpers.js -m -p $PIL -s $BDIR/zkevm.starkinfo.json -c $BDIR/zkevm.chelpers/zkevm.chelpers.cpp -C ZkevmSteps -o",
     "buildconstanttree": ". ./pre.sh && $BCTREE -c $BDIR/zkevm.const -p $PIL -s $BDIR/zkevm.starkstruct.json -t $BDIR/zkevm.consttree -v $BDIR/zkevm.verkey.json",
